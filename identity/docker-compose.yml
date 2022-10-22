@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  identity:
+          container_name: apiidentity
+          restart: always
+          build: .
+          ports:
+              - "3002:3000"
+          links:
+            - mongo
+  mongo:
+          container_name: mongodb
+          image: mongo
+          ports: 
+              - "27018:27018"
